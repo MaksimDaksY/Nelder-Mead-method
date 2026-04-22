@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1", "Lab1.csproj", "{86F101C8-D629-4F37-98DE-5B1AC4340B41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab1", "Lab1.csproj", "{86F101C8-D629-4F37-98DE-5B1AC4340B41}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{A70D8C84-D767-44B7-98D2-4A611EDC38CF}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		Vector.cs = Vector.cs
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NelderMeadParser", "..\NelderMeadParser\NelderMeadParser.csproj", "{9F981774-1241-4E3F-8AC9-A7AE76C57378}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NelderMeadTests", "..\NelderMeadTests\NelderMeadTests.csproj", "{FDFC532F-E99D-47D6-B024-580AACE2BCB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NelderMeadCore", "..\NelderMeadCore\NelderMeadCore.csproj", "{5600D3FE-3A96-41B2-A6A5-9CAC8AFFE6EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{86F101C8-D629-4F37-98DE-5B1AC4340B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86F101C8-D629-4F37-98DE-5B1AC4340B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86F101C8-D629-4F37-98DE-5B1AC4340B41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F981774-1241-4E3F-8AC9-A7AE76C57378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F981774-1241-4E3F-8AC9-A7AE76C57378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F981774-1241-4E3F-8AC9-A7AE76C57378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F981774-1241-4E3F-8AC9-A7AE76C57378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDFC532F-E99D-47D6-B024-580AACE2BCB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDFC532F-E99D-47D6-B024-580AACE2BCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDFC532F-E99D-47D6-B024-580AACE2BCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDFC532F-E99D-47D6-B024-580AACE2BCB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5600D3FE-3A96-41B2-A6A5-9CAC8AFFE6EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5600D3FE-3A96-41B2-A6A5-9CAC8AFFE6EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5600D3FE-3A96-41B2-A6A5-9CAC8AFFE6EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5600D3FE-3A96-41B2-A6A5-9CAC8AFFE6EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
