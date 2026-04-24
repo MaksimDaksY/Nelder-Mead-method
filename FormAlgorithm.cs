@@ -35,11 +35,11 @@ namespace NelderMead
             try
             {
                 dataGridSimplex.Rows.Clear();
-                for (int i = 0; i < Parameters.CurrentSimplex.Points.Length; i++)
+                for (int i = 0; i < Parameters.CurrentSimplex.Points.Count; i++)
                 {
                     Vector point = Parameters.CurrentSimplex.Points[i];
-                    string vectorToText = "(" + string.Join("; ", point.Coordinates) + ")";
-                    double value = Parameters.GoalFunction.Evaluate(point.Coordinates);
+                    string vectorToText = "(" + string.Join("; ", point.ToArray()) + ")";
+                    double value = Parameters.GoalFunction.Evaluate(point.ToArray());
                     dataGridSimplex.Rows.Add(vectorToText, value);
                 }
             }
