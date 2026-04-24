@@ -58,7 +58,7 @@ namespace NelderMeadTests
             var a = new Vector(new double[] { 1, 2 });
             var b = new Vector(new double[] { 3, 4 });
             var result = a + b;
-            CollectionAssert.AreEqual(new double[] { 4, 6 }, result.Coordinates);
+            CollectionAssert.AreEqual(new double[] { 4, 6 }, result.ToArray());
         }
 
         [TestMethod]
@@ -67,7 +67,7 @@ namespace NelderMeadTests
             var a = new Vector(new double[] { 5, 7 });
             var b = new Vector(new double[] { 2, 3 });
             var result = a - b;
-            CollectionAssert.AreEqual(new double[] { 3, 4 }, result.Coordinates);
+            CollectionAssert.AreEqual(new double[] { 3, 4 }, result.ToArray());
         }
 
         [TestMethod]
@@ -75,7 +75,7 @@ namespace NelderMeadTests
         {
             var v = new Vector(new double[] { 1, 2, 3 });
             var result = v * 2;
-            CollectionAssert.AreEqual(new double[] { 2, 4, 6 }, result.Coordinates);
+            CollectionAssert.AreEqual(new double[] { 2, 4, 6 }, result.ToArray());
         }
 
         [TestMethod]
@@ -83,7 +83,7 @@ namespace NelderMeadTests
         {
             var v = new Vector(new double[] { 2, 4, 6 });
             var result = v / 2;
-            CollectionAssert.AreEqual(new double[] { 1, 2, 3 }, result.Coordinates);
+            CollectionAssert.AreEqual(new double[] { 1, 2, 3 }, result.ToArray());
         }
 
         [TestMethod]
@@ -111,7 +111,7 @@ namespace NelderMeadTests
                 new Vector(new double[] {5, 6})
             };
             var sum = Vector.Sum(vectors);
-            CollectionAssert.AreEqual(new double[] { 9, 12 }, sum.Coordinates);
+            CollectionAssert.AreEqual(new double[] { 9, 12 }, sum.ToArray());
         }
 
         //Тесты Simplex
@@ -130,10 +130,10 @@ namespace NelderMeadTests
             simplex.SortPointsByResult(func);
 
             // Лучшая точка (минимальное значение) должна быть первой
-            double bestValue = func.Evaluate(simplex.Points[0].Coordinates);
+            double bestValue = func.Evaluate(simplex.Points[0].ToArray());
             Assert.AreEqual(0, bestValue, 1e-10);
             // Худшая точка должна быть последней
-            double worstValue = func.Evaluate(simplex.Points[simplex.Points.Length - 1].Coordinates);
+            double worstValue = func.Evaluate(simplex.Points[simplex.Points.Count - 1].ToArray());
             Assert.AreEqual(8, worstValue, 1e-10);
         }
 
@@ -150,10 +150,10 @@ namespace NelderMeadTests
             simplex.Shrink(0.5);
 
             // Лучшая точка (первая) не меняется
-            CollectionAssert.AreEqual(new double[] { 0, 0 }, simplex.Points[0].Coordinates);
+            CollectionAssert.AreEqual(new double[] { 0, 0 }, simplex.Points[0].ToArray());
             // Остальные точки сжимаются относительно лучшей
-            CollectionAssert.AreEqual(new double[] { 1, 0 }, simplex.Points[1].Coordinates);
-            CollectionAssert.AreEqual(new double[] { 0, 1 }, simplex.Points[2].Coordinates);
+            CollectionAssert.AreEqual(new double[] { 1, 0 }, simplex.Points[1].ToArray());
+            CollectionAssert.AreEqual(new double[] { 0, 1 }, simplex.Points[2].ToArray());
         }
 
         //Тесты NelderMeadAlgorithm
@@ -173,9 +173,9 @@ namespace NelderMeadTests
             var algorithm = new NelderMeadAlgorithm(1.0, 2.0, 0.5, simplex, func);
 
             // Сохраняем лучшее значение до итерации
-            double beforeBest = func.Evaluate(algorithm.CurrentSimplex.Points[0].Coordinates);
+            double beforeBest = func.Evaluate(algorithm.CurrentSimplex.Points[0].ToArray());
             algorithm.NextIteration();
-            double afterBest = func.Evaluate(algorithm.CurrentSimplex.Points[0].Coordinates);
+            double afterBest = func.Evaluate(algorithm.CurrentSimplex.Points[0].ToArray());
 
             // После итерации значение должно уменьшиться (или остаться таким же, но не стать хуже)
             Assert.IsTrue(afterBest <= beforeBest);
@@ -204,8 +204,8 @@ namespace NelderMeadTests
             Assert.IsTrue(algorithm.EndReached);
             // Лучшая точка должна быть близка к (0,0)
             var bestPoint = algorithm.CurrentSimplex.Points[0];
-            Assert.IsTrue(Math.Abs(bestPoint.Coordinates[0]) < 1e-5);
-            Assert.IsTrue(Math.Abs(bestPoint.Coordinates[1]) < 1e-5);
+            Assert.IsTrue(Math.Abs(bestPoint[0]) < 1e-5);
+            Assert.IsTrue(Math.Abs(bestPoint[1]) < 1e-5);
         }
 
         [TestMethod]
