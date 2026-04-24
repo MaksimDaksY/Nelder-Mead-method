@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;          // добавлено для ToArray()
+using System.Linq;
 using NelderMeadParser;
 
 namespace NelderMeadCore
